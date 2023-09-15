@@ -23,5 +23,10 @@ sh-root:
 	$(DOCKER_COMP) root-shell
 
 code-style:
-	@$(COMPOSER) cs-check
-	@$(COMPOSER) phpstan
+	$(COMPOSER) cs-check
+	$(COMPOSER) phpstan
+
+run-ide-helper:
+	$(DOCKER_COMP) php artisan ide-helper:models -R -W
+	$(COMPOSER) cs-fix
+
